@@ -1,0 +1,124 @@
+
+ a:link		{ color: #00FFFF; text-decoration: none; }
+ a:visited	{ color: #00FFFF; text-decoration: none; }
+ a:hover	{ color: #00FFFF; text-decoration: none; }
+ a:active	{ color: #00FFFF; text-decoration: none; }
+ a:focus	{ color: #00FFFF; text-decoration: none; }
+
+ body
+ {
+	color:				#FFFFFF;
+	background-color:		#202020;
+	font-family:			verdana;
+	font-size:			10pt;
+	font-weight:			normal;
+	font-style:			normal;
+	margin-left:			10px;
+	margin-right:			10px;
+	margin-top:			10px;
+	margin-bottom:			10px;
+ }
+
+ input
+ {
+	color:				#00FFFF;
+	background-color:		#000000;
+	font-family:			verdana;
+	font-size:			10pt;
+	font-weight:			normal;
+	font-style:			normal;
+ }
+
+ table
+ {
+	border-spacing:			0px;
+	color:				#FFFFFF;
+	font-family:			verdana;
+	font-size:			10pt;
+	font-weight:			normal;
+	font-style:			normal;
+ }
+
+ th
+ {
+	padding:			3px;
+	margin:				1px;
+	background-color:		#808080;
+ }
+
+ td
+ {
+	padding:			3px;
+	margin:				1px;
+	background-color:		#505050;
+ }
+
+ .mp3Data
+ {
+	background-color:		#005555;
+ }
+
+ h4
+ {
+	color:				gold;
+	font-family:			verdana;
+	font-size:			12pt;
+	font-weight:			bold;
+ }
+
+ fieldset
+ {
+	border:				2px solid gold;
+	border-radius:			10px;
+ }
+
+ .helpTopic
+ {
+	color:				gold;
+	font-family:			verdana;
+	font-size:			10pt;
+	font-weight:			bold;
+	text-decoration:		underline;
+	margin-left:			20px;
+ }
+
+ .helpContent
+ {
+	margin-left:			50px;
+	text-align:			justify;
+ }
+
+ .nMusicButtonMain
+ {
+	height:				20px;
+	font-family:			verdana;
+	font-size:			8pt;
+	font-weight:			bold;
+	text-align:			center;
+	padding-left:			1px;
+	padding-right:			1px;
+	color:				gold;
+	cursor:				pointer;
+	border:				1px solid gold;
+	background:			linear-gradient(#808080, #303030);
+ }
+	.nMusicButtonMain:hover
+	{
+		color:			#00FFFF;
+		border:			1px solid #00FFFF;
+	}
+
+ .nMusicButton
+ {
+	height:				20px;
+	font-family:			verdana;
+	font-size:			8pt;
+	font-weight:			bold;
+	text-align:			center;
+	padding-left:			10px;
+	padding-right:			10px;
+	color:				gold;
+	cursor:				pointer;
+	border:				1px solid #00FFFF;
+	background:			linear-gradient(#808080, #303030);
+ }

@@ -1,0 +1,433 @@
+
+ a:link		{ color: #00FFFF; text-decoration: none; }
+ a:visited	{ color: #00FFFF; text-decoration: none; }
+ a:hover	{ color: #00FFFF; text-decoration: none; }
+ a:active	{ color: #00FFFF; text-decoration: none; }
+ a:focus	{ color: #00FFFF; text-decoration: none; }
+
+
+ body
+ {
+	width:				100%;
+	height:				100%;
+	color:				#FFFFFF;
+	font-family:			verdana;
+	font-size:			8pt;
+	font-weight:			normal;
+	font-style:			normal;
+	margin-left:			0px;
+	margin-right:			0px;
+	margin-top:			0px;
+	margin-bottom:			0px;
+ }
+
+
+ .trLine
+ {
+	background: linear-gradient(#404040, #151515);
+ }
+
+
+ .blockLeft
+ {
+	width:			8px;
+	vertical-align:		top;
+	font-size:		10pt;
+	color:			#00FFFF;
+	padding-top:		6px;
+	border-right:		2px solid black;
+ }
+
+ .blockMain
+ {
+	border-bottom: 5px solid #000000;
+ }
+
+ .blockPl
+ {
+	border-bottom: 5px solid #000000;
+ }
+
+ .blockEq
+ {
+	border-bottom: 5px solid #000000;
+ }
+
+ .blockDsp
+ {
+	border-bottom: 5px solid #000000;
+ }
+
+ .blockWave
+ {
+	border-bottom: 5px solid #000000;
+ }
+
+
+ .nMusicTable
+ {
+	color:			#FFFFFF;
+	background-color:	#202020;
+	border:			5px solid #000000;
+	border-radius:		10px;
+	border-spacing:		0px;
+	padding:		0px;
+	font-family:		verdana;
+	font-size:		8pt;
+	margin:			15px;
+ }
+
+
+ .mainMainTable td
+ {
+	padding: 1px;
+ }
+
+
+ .nMusicDisplay
+ {
+	color:			#00FFFF;
+	font-family:		verdana;
+	font-size:		8pt;
+ }
+
+
+ .nMusicDisplayArea
+ {
+	height:			16px;
+	color:			#000000;
+	background-color:	#00FFFF;
+	font-family:		verdana;
+	font-size:		7pt;
+	line-height:		16px;
+	text-align:		center;
+	margin:			0 auto;
+	margin-bottom:		4px;
+	border:			1px solid #00FFFF;
+ }
+
+
+ .nMusicDisplayStatus
+ {
+	height:			16px;
+	color:			#808080;
+	font-family:		verdana;
+	font-size:		7pt;
+	line-height:		16px;
+	text-align:		center;
+	margin:			0 auto;
+	margin-bottom:		4px;
+	border:			1px solid #808080;
+ }
+
+
+ .nMusicDisplayTime
+ {
+	color:			#00FFFF;
+	font-family:		verdana;
+	font-size:		9pt;
+	margin:			0 auto;
+	margin-bottom:		4px;
+	border:			0px solid #808080;
+ }
+
+
+ .nMusicDisplayRepeat
+ {
+	color:			#808080;
+	font-family:		verdana;
+	font-size:		9pt;
+	text-align:		center;
+	margin-top:		0px;
+	border:			1px solid #808080;
+ }
+
+
+ .nMusicButton
+ {
+	height:			20px;
+	font-family:		verdana;
+	font-size:		7pt;
+	font-weight:		bold;
+	text-align:		center;
+	padding-left:		1px;
+	padding-right:		1px;
+	color:			#FFFFFF;
+	cursor:			pointer;
+	border:			1px solid #008080;
+	background:		linear-gradient(#808080, #303030);
+ }
+
+
+
+ .nMusicButtonBlank
+ {
+	height:			20px;
+	font-family:		verdana;
+	font-size:		7pt;
+	font-weight:		bold;
+	text-align:		center;
+	padding-left:		1px;
+	padding-right:		1px;
+	color:			#FFFFFF;
+	cursor:			pointer;
+	border:			1px solid #505050;
+	background:		linear-gradient(#808080, #303030);
+ }
+
+
+ .nMusicButtonFrame
+ {
+	height:			20px;
+	font-family:		verdana;
+	font-size:		7pt;
+	font-weight:		bold;
+	text-align:		center;
+	padding-left:		1px;
+	padding-right:		1px;
+	color:			#FFFFFF;
+	cursor:			pointer;
+	border:			1px solid #008800;
+	background:		linear-gradient(#808080, #303030);
+ }
+
+
+ .nMusicButtonDj
+ {
+	height:			20px;
+	font-family:		verdana;
+	font-size:		7pt;
+	font-weight:		bold;
+	text-align:		center;
+	padding-left:		1px;
+	padding-right:		1px;
+	color:			gold;
+	cursor:			pointer;
+	border:			1px solid gold;
+	background:		linear-gradient(#808080, #303030);
+ }
+
+
+ .nMusicButtonVisu
+ {
+	height:			20px;
+	font-family:		verdana;
+	font-size:		7pt;
+	font-weight:		bold;
+	text-align:		center;
+	padding-left:		1px;
+	padding-right:		1px;
+	color:			#EE82EE;
+	cursor:			pointer;
+	border:			1px solid #EE82EE;
+	background:		linear-gradient(#808080, #303030);
+ }
+
+
+ .nMusicButtonSounds
+ {
+	width:			25px;
+	height:			25px;
+	line-height:		12px;
+	font-family:		verdana;
+	font-size:		14pt;
+	font-weight:		bold;
+	text-align:		center;
+	margin-left:		4px;
+	margin-right:		4px;
+	cursor:			pointer;
+	color:			#FFFFFF;
+	border:			1px solid #FFFFFF;
+	border-radius:		50%;
+	background:		linear-gradient(#808080, #303030);
+ }
+
+
+ .tlDiv
+ {
+	scrollbar-face-color:  #00FFFF;
+	scrollbar-track-color: #000000;
+	scrollbar-color:       #00FFFF #000000;
+	scrollbar-width:       thin;
+ }
+	.tlDiv::-webkit-scrollbar
+	{
+		width: 8px;
+		background-color: #000000;
+	}
+	.tlDiv::-webkit-scrollbar-button
+	{
+		background-color: #000000;
+	}
+	.tlDiv::-webkit-scrollbar-thumb
+	{
+		background-color: #00FFFF;
+	}
+
+
+ .plvHead
+ {
+	color:			#000000;
+	background-color:	#00FFFF;
+	font-weight:		bold;
+ }
+
+
+ /* ======================================================================================== */
+
+
+ .nRegisterButton
+ {
+	padding:                 5px;
+	margin-left:             0px;
+	margin-right:            5px;
+	margin-top:              3px;
+	margin-bottom:           0px;
+	float:                   left;
+	height:                  15px;
+	text-align:              center;
+	color:                   #FFFFFF;
+	font-weight:             normal;
+	cursor:                  pointer;
+	border-top:              1px solid #505050;
+	border-left:             1px solid #505050;
+	border-right:            1px solid #505050;
+	border-bottom:           1px solid #505050;
+	border-top-left-radius:  5px;
+	border-top-right-radius: 5px;
+ }
+
+ .nRegisterContent
+ {
+	visibility:              hidden;
+	display:                 none;
+	width:                   99%;
+	overflow:                auto;
+	vertcial-align:		 top;
+	background-color:        #000000;
+	border-top:              0px solid #505050;
+	border-left:             1px solid #505050;
+	border-right:            1px solid #505050;
+	border-bottom:           1px solid #505050;
+ }
+
+ .nRegisterInner
+ {
+	margin:                  5px;
+ }
+
+ .nRegisterHinweis
+ {
+	line-height:             32px;
+	border-bottom:           1px solid #505050;
+	width:                   99.2%;
+	height:                  29px;
+	padding:                 0px;
+	text-align:              left;
+ }
+
+
+ .nWelcomeTxtCtx
+ {
+	visibility:              hidden;
+	display:                 none;
+	color:                   #00FFFF;
+	text-align:              left;
+	border:                  0px;
+	margin:                  10px;
+	vertcial-align:		 top;
+ }
+
+
+ /* ======================================================================================== */
+
+
+ .ctmDiv
+ {
+	z-index:		95;
+	position:		absolute;
+	visibility:		hidden;
+	border-left:		1px solid #FFFFFF;
+	border-top:		1px solid #FFFFFF;
+	border-right:		1px solid #808080;
+	border-bottom:		1px solid #808080;
+ }
+
+
+ .ctmSub
+ {
+	z-index:		96;
+	position:		absolute;
+	visibility:		hidden;
+	border-left:		1px solid #FFFFFF;
+	border-top:		1px solid #FFFFFF;
+	border-right:		1px solid #808080;
+	border-bottom:		1px solid #808080;
+ }
+
+
+ .ctmHrLine
+ {
+	background-color:	#808080;
+	line-height:		2px;
+	height:			1px;
+	border:			0px;
+	padding:		0px;
+	margin-top:		2px;
+	margin-bottom:		2px;
+ }
+
+
+ .ctmHr
+ {
+	background-color:	#DCDCDC;
+	line-height:		16px;
+	padding:		 1px;
+	padding-left:		26px;
+ }
+
+
+ .ctm
+ {
+	color:			#000000;
+	background-color:	#DCDCDC;
+	line-height:		16px;
+	padding:		1px;
+	cursor:			pointer;
+	padding-right:		8px;
+	white-space:		nowrap;
+ }
+	.ctm:hover
+	{
+		color:			#FFFFFF;
+		background-color:	#336699;
+	}
+
+
+ .ctmSubLine
+ {
+	color:			#000000;
+	background-color:	#DCDCDC;
+	line-height:		16px;
+	padding:		1px;
+	cursor:			pointer;
+	padding-right:		8px;
+	white-space:		nowrap;
+ }
+	.ctmSubLine:hover
+	{
+		color:			#FFFFFF;
+		background-color:	#336699;
+	}
+
+
+ .ctmImg
+ {
+	width:			16px;
+	height:			16px;
+	border:			0px;
+	float:			left;
+	margin-left:		2px;
+	margin-right:		8px;
+ }
+
