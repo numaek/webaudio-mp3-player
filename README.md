@@ -1,7 +1,6 @@
+# webaudio-mp3-player-for-homepage
 
 ```
-
-# webaudio-mp3-player-for-homepage
 
 An mp3 Player for Homepage with the WebAudio API
 
