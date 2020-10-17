@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+		<title>numaek Music-Player 2.0</title>
+
+		<META charset="utf-8">
+
+		<META NAME="publisher"           CONTENT="Homepage-Name">
+		<META NAME="Description"         CONTENT="Audio Player, numaek.de PHP & Javascript, Scripte & Anwendungen. CMS, Homepage-Erstellung für Privat- und Firmenkunden.">
+		<META NAME="Keywords"            CONTENT="Web, Audio, API, Player, Canvas, Javascript">
+		<META NAME="language"            CONTENT="de">
+		<META NAME="Description"         CONTENT="">
+		<META NAME="Keywords"            CONTENT="">
+		<META NAME="Copyright"           CONTENT="Copyright: Homepage-Name">
+		<META NAME="Public"              CONTENT="all">
+		<META NAME="Rating"              CONTENT="all">
+		<META NAME="audience"            CONTENT="all">
+		<META NAME="expires"             CONTENT="never">
+		<META NAME="page-type"           CONTENT="Commercial Homepage">
+		<META NAME="Author"              CONTENT="Homepage-Name">
+		<META NAME="robots"              CONTENT="index,follow">
+		<META NAME="revisit-after"       CONTENT="7 days">
+		<META HTTP-EQUIV="cache-control" content="no-cache">
+		<META HTTP-EQUIV="pragma"        content="no-cache">
+
+		<link rel="stylesheet" type="text/css" href="src/admin.css">
+	</head>
+ <body>
+
+ <br>
+ <div style="width: 350px; margin: 0px auto; text-align: center; padding: 3px; border: 2px solid gold; border-radius: 10px; background-color: #000000;">
+	<a href="http://www.numaek.de" target="_blank" title="www.numaek.de" style="font-weight: bold; text-decoration: underline; color: gold;">.:: numaek WebAudio Player 2.0 ::.</a>
+ </div>
+ <br>
+
+ <fieldset><legend><h4>&nbsp;Kurzanleitung&nbsp;</h4></legend>
+
+	<span class="helpTopic">Installation</span><br>
+	<p    class="helpContent">
+
+		1) Die Datei "admin.php" &ouml;ffnen und die Zugangsdaten f&uuml;r Login und Passwort &auml;ndern.<br><br>
+
+		2) Ggf. die Anfangsreihenfolge der einzelnen Bausteine in der Konfigurationsdatei "playerConfig.php" &auml;ndern.<br><br>
+
+		3) Ggf. den Player an die eigene Homepage anpassen. Das sollte am besten in der Datei "player.php" geschehen.<br><br>
+
+		4) Alle Ordner und Dateien hochladen.<br><br>
+
+		5) Folgende Rechte als Oktalwert (chmod) mit dem FTP-Programm vergeben:<br>
+
+	</p>
+
+	<table border="0" style="margin-left: 100px; border: 1px solid black; border-spacing: 1px;">
+		<tr>
+			<td style="text-align:  right;                     width:  80px;">Ordner:</td>
+			<td style="font-weight:  bold; padding-left: 20px; width: 120px;">files/</td>
+			<td style="text-align: center; font-style: italic; width:  50px;">0755</td>
+		</tr>
+		<tr>
+			<td style="text-align:  right;">Ordner:</td>
+			<td style="font-weight:  bold; padding-left: 20px;">playlists/</td>
+			<td style="text-align: center; font-style: italic;">0755</td>
+		</tr>
+		<tr>
+			<td style="text-align:  right;">Ordner:</td>
+			<td style="font-weight:  bold; padding-left: 20px;">cache/</td>
+			<td style="text-align: center; font-style: italic;">0755</td>
+		</tr>
+		<tr>
+			<td style="text-align:  right;">Ordner:</td>
+			<td style="font-weight:  bold; padding-left: 20px;">import/</td>
+			<td style="text-align: center; font-style: italic;">0755</td>
+		</tr>
+		<tr>
+			<td style="text-align:  right;">Ordner:</td>
+			<td style="font-weight:  bold; padding-left: 20px;">export/</td>
+			<td style="text-align: center; font-style: italic;">0755</td>
+		</tr>
+		<tr>
+			<td style="text-align:  right;">Datei:</td>
+			<td style="font-weight:  bold; padding-left: 20px;">src/Config.js</td>
+			<td style="text-align: center; font-style: italic;">0755</td>
+		</tr>
+		<tr>
+			<td style="text-align:  right;">Datei:</td>
+			<td style="font-weight:  bold; padding-left: 20px;">src/style.css</td>
+			<td style="text-align: center; font-style: italic;">0755</td>
+		</tr>
+	</table>
+
+	<p    class="helpContent">
+
+		6) Aufruf des Players mit "player.php" oder "/" (index.php) im entsprechenden Verzeichnis.<br><br>
+
+		7) In die Playlistverwaltung mit den eben ge&auml;nderten Zugangsdaten einloggen und die Hinweise auf der Hilfe-Seite beachten.<br>
+			<span style="padding-left: 20px;">Die Playlistverwaltung l&auml;sst sich auf 2 Wegen erreichen:</span><br>
+			<span style="padding-left: 35px;">1) Im mittleren Baustein (Playlist) unten links auf den Pfeil nach oben &#9167; und danach auf "Verwalten" klicken.</span><br>
+			<span style="padding-left: 35px;">2) Direkter Aufruf mit "admin.php".</span><br>
+			<br>
+
+		8) Die Check-Seite aufrufen und die Verzeichnisrechte pr&uuml;fen.<br><br>
+
+		9) Die Konfig-Seite aufrufen und ggf. Einstellungen &auml;ndern.<br><br>
+
+		10) Die Style-Seite aufrufen und ggf. Einstellungen &auml;ndern.<br><br>
+
+	</p>
+
+ </fieldset>
+
+ <br>
+
+ <fieldset><legend><h4>&nbsp;Beschreibung&nbsp;</h4></legend>
+
+	<span class="helpTopic">Entstehung</span><br>
+	<p    class="helpContent">
+
+		Dieser Music-Player demonstriert, was mit der WebAudio-API so alles m&ouml;glich ist.<br>
+		Es sind nicht alle Funktionen abgedeckt, aber wohl die wichtigsten.<br>
+		<br>
+		Er ist dazu gedacht, dass ihr euren Besuchern Musik auf der eigenen Homepage anbieten k&ouml;nnt.<br>
+		Sei es die selbst komponierte oder einfach nur zur Unterhaltung.<br>
+		<br>
+		Das Laden und Abspielen der .mp3-Dateien basiert auf dem &lt;audio&gt;-Object, so dass ein Besucher mit einem alten Browser die Musik trotzdem noch h&ouml;ren kann.<br>
+		F&uuml;r diesen Fall werden auch die Werte der animierten Anzeigen mittels Zufallsgenerator simuliert.<br>
+		Diese Anzeigen werden in echtzeit mit Canvas realisiert und lesen die Frequenz- und Pegelwerte der Musikdateien aus.<br>
+		<br>
+		Playlist-Dateien liegen f&uuml;r den Player im eigenen internen Format vor, k&ouml;nnen aber im .m3u-Format im- und exportiert werden.<br>
+		Freigegebene Listen erscheinen dann als Auswahl. Eine wird als Vorwahl markiert.<br>
+		Sofern erlaubt, k&ouml;nnen Besucher auch ihre eingenen .mp3-Dateien von ihrer Festplatte abspielen.<br>
+		<br>
+		Da etwas Spielerei nicht fehlen darf, verf&uuml;gt der Player noch &uuml;ber einen 10-Band Equalizer mit vorgefertigten Kurven und einem individuellen Speicherplatz,<br>
+		sowie diverse Anzeigemodi und -Farben f&uuml;r die Frequenz-Spektrum Anzeige.
+		Dazu noch Regler f&uuml;r Echo- und Panoramaeffekte.
+		Das Oszilloskop zeigt den aktuellen kurvenverlauf.
+		<br><br>
+		Die Wellenformanalyse liest die kompletten PCM-Daten ein und stellt diese mit einer direkten Sprungfunktion dar.<br>
+		Der aktuelle sichtbare Ausschnitt der ganzen Grafik l&auml;uft durch einen begrenzten Bereich. Dabei werden die BPM ermittelt und die ID3-Tags ausgelesen.<br>
+		Die Loudness-Funktion arbeitet bis zur halben Lautst&auml;rke, indem die tiefen T&ouml;ne angehoben werden.<br>
+		<br>
+		Die Lautst&auml;rkeanpassung ist ein vollautomatisches Modul der API. Der DSP Baustein produziert diverse Raumklang- und Verz&ouml;gerungseffekte.<br>
+		Der Tongenerator erf&uuml;llt keinen besonderen Zweck. Die restlichen Funktionen sollten von andern Playern her bekannt und selbsterkl&auml;rend sein.<br>
+		<br>
+	</p>
+
+	<span class="helpTopic">Aufbauschema - Routing</span><br>
+	<p    class="helpContent">
+
+	<canvas id="AudioApiStructure" width="730" height="320" style="border: 10px inset #808080;"></canvas><br><br>
+
+	<script language="javascript">
+
+	var nCVPathConfig = new Array();
+
+	    nCVPathConfig['width']        = 730;
+	    nCVPathConfig['height']       = 320;
+	    nCVPathConfig['boxWidth']     = 60;
+	    nCVPathConfig['boxHeight']    = 40;
+
+	var nCVPathCounter = 0;
+
+	function nCVShowPath()
+	{
+		var nCVPath = document.getElementById('AudioApiStructure');
+		if( nCVPath.getContext )
+		{
+			nCVLineOff          = 'green';
+			nCVLineOn           = 'red';
+			nCVLineLoops        = 20;
+			nCVLineSpeed        = 500;
+
+			nCVPath             = nCVPath.getContext('2d');
+
+			nCVPath.strokeStyle = '#000000';
+			nCVPath.fillStyle   = '#DCDCDC';
+			nCVPath.clearRect(0, 0, nCVPathConfig['width'], nCVPathConfig['height']);
+			nCVPath.fillRect( 0, 0, nCVPathConfig['width'], nCVPathConfig['height']);
+
+
+			// ##### Kästen #####
+			// ==================
+			// Zeile 1
+			nCVPath.strokeRect( 40, 20, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+
+			nCVPath.strokeRect(( 40+(nCVPathConfig['boxWidth'] * 1)+30),     20, nCVPathConfig['boxHeight'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect((130+(nCVPathConfig['boxHeight']* 1)+(15*1)), 20, nCVPathConfig['boxHeight'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect((130+(nCVPathConfig['boxHeight']* 2)+(15*2)), 20, nCVPathConfig['boxHeight'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect((130+(nCVPathConfig['boxHeight']* 3)+(15*3)), 20, nCVPathConfig['boxHeight'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect((130+(nCVPathConfig['boxHeight']* 4)+(15*4)), 20, nCVPathConfig['boxHeight'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect((130+(nCVPathConfig['boxHeight']* 5)+(15*5)), 20, nCVPathConfig['boxHeight'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect((130+(nCVPathConfig['boxHeight']* 6)+(15*6)), 20, nCVPathConfig['boxHeight'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect((130+(nCVPathConfig['boxHeight']* 7)+(15*7)), 20, nCVPathConfig['boxHeight'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect((130+(nCVPathConfig['boxHeight']* 8)+(15*8)), 20, nCVPathConfig['boxHeight'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect((130+(nCVPathConfig['boxHeight']* 9)+(15*9)), 20, nCVPathConfig['boxHeight'], nCVPathConfig['boxHeight']);
+
+			// Zeile 2
+			nCVPath.strokeRect( 40, 140, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+
+			nCVPath.strokeRect( 40+nCVPathConfig['boxWidth']+30, 100, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect( 40+nCVPathConfig['boxWidth']+30, 180, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+
+			nCVPath.strokeRect( 40+(nCVPathConfig['boxWidth']*2)+30+ 10, 100, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect( 40+(nCVPathConfig['boxWidth']*2)+30+ 10, 180, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+
+			nCVPath.strokeRect( 40+(nCVPathConfig['boxWidth']*3)+30+ 50, 140, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect( 40+(nCVPathConfig['boxWidth']*4)+30+ 80, 140, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+
+			nCVPath.strokeRect( 40+(nCVPathConfig['boxWidth']*5)+30+140, 140, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect( 40+(nCVPathConfig['boxWidth']*6)+30+170, 140, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+
+			// Zeile 3
+			nCVPath.strokeRect( 40, 260, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect( 40+ nCVPathConfig['boxWidth']   +30, 260, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect( 40+(nCVPathConfig['boxWidth']*3)+30+  50, 260, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect( 40+(nCVPathConfig['boxWidth']*4)+30+  80, 260, nCVPathConfig['boxWidth'], nCVPathConfig['boxHeight']);
+			nCVPath.strokeRect( 40+(nCVPathConfig['boxWidth']*5)+30+ 140, 260, (nCVPathConfig['boxWidth']*2)+30, nCVPathConfig['boxHeight']);
+
+
+			// ##### Linien #####
+			// ==================
+			nCVPath.fillStyle   = nCVLineOff;
+			nCVPath.strokeStyle = nCVLineOff;
+
+			// Dreieck Start
+			nCVPath.beginPath();
+			nCVPath.moveTo( 20,  33);	nCVPath.lineTo( 20,  47);
+							nCVPath.lineTo( 30,  40);
+							nCVPath.lineTo( 20,  33);
+			nCVPath.closePath();
+			nCVPath.fill();
+			nCVPath.beginPath();
+
+			// Zeile 1
+			nCVPath.moveTo( 20,  40);	nCVPath.lineTo( 40,  40);	nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(100,  40);	nCVPath.lineTo(130,  40);	nCVPath.strokeStyle = ( nCVPathCounter ==  1 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(170,  40);	nCVPath.lineTo(185,  40);	nCVPath.strokeStyle = ( nCVPathCounter ==  2 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(225,  40);	nCVPath.lineTo(240,  40);	nCVPath.strokeStyle = ( nCVPathCounter ==  3 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(280,  40);	nCVPath.lineTo(295,  40);	nCVPath.strokeStyle = ( nCVPathCounter ==  4 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(335,  40);	nCVPath.lineTo(350,  40);	nCVPath.strokeStyle = ( nCVPathCounter ==  5 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(390,  40);	nCVPath.lineTo(405,  40);	nCVPath.strokeStyle = ( nCVPathCounter ==  6 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(445,  40);	nCVPath.lineTo(460,  40);	nCVPath.strokeStyle = ( nCVPathCounter ==  7 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(500,  40);	nCVPath.lineTo(515,  40);	nCVPath.strokeStyle = ( nCVPathCounter ==  8 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(555,  40);	nCVPath.lineTo(570,  40);	nCVPath.strokeStyle = ( nCVPathCounter ==  9 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(610,  40);	nCVPath.lineTo(625,  40);	nCVPath.strokeStyle = ( nCVPathCounter == 10 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(665,  40);	nCVPath.lineTo(700,  40);
+			nCVPath.lineTo(700,  80);
+			nCVPath.lineTo( 20,  80);
+			nCVPath.lineTo( 20, 160);
+			nCVPath.lineTo( 40, 160);					nCVPath.strokeStyle = ( nCVPathCounter == 11 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+
+			// Zeile 2
+			nCVPath.moveTo(100, 160);	nCVPath.lineTo(115, 160);
+			nCVPath.moveTo(115, 120);	nCVPath.lineTo(115, 200);
+			nCVPath.moveTo(115, 120);	nCVPath.lineTo(130, 120);
+			nCVPath.moveTo(115, 200);	nCVPath.lineTo(130, 200);	nCVPath.strokeStyle = ( nCVPathCounter == 12 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(190, 120);	nCVPath.lineTo(200, 120);
+			nCVPath.moveTo(190, 200);	nCVPath.lineTo(200, 200);	nCVPath.strokeStyle = ( nCVPathCounter == 13 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(260, 120);	nCVPath.lineTo(280, 120);
+			nCVPath.moveTo(260, 200);	nCVPath.lineTo(280, 200);
+			nCVPath.moveTo(280, 120);	nCVPath.lineTo(280, 200);
+			nCVPath.moveTo(280, 160);	nCVPath.lineTo(300, 160);	nCVPath.strokeStyle = ( nCVPathCounter == 14 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(360, 160);	nCVPath.lineTo(390, 160);	nCVPath.strokeStyle = ( nCVPathCounter == 15 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(450, 160);	nCVPath.lineTo(510, 160);
+			nCVPath.moveTo(570, 160);	nCVPath.lineTo(600, 160);
+			nCVPath.moveTo(660, 160);	nCVPath.lineTo(700, 160);
+			nCVPath.lineTo(700, 240);
+			nCVPath.lineTo( 20, 240);
+			nCVPath.lineTo( 20, 280);
+			nCVPath.lineTo( 40, 280);
+			nCVPath.moveTo(480, 160);	nCVPath.lineTo(480, 240);	nCVPath.strokeStyle = ( nCVPathCounter == 16 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+
+			// Zeile 3
+			nCVPath.moveTo(100, 280);	nCVPath.lineTo(130, 280);	nCVPath.strokeStyle = ( nCVPathCounter == 17 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(190, 280);	nCVPath.lineTo(300, 280);	nCVPath.strokeStyle = ( nCVPathCounter == 18 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(360, 280);	nCVPath.lineTo(390, 280);	nCVPath.strokeStyle = ( nCVPathCounter == 19 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(450, 280);	nCVPath.lineTo(510, 280);	nCVPath.strokeStyle = ( nCVPathCounter == 20 ) ? nCVLineOn : nCVLineOff; nCVPath.stroke(); nCVPath.closePath(); nCVPath.beginPath();
+			nCVPath.moveTo(660, 280);	nCVPath.lineTo(700, 280);
+
+			nCVPath.strokeStyle = nCVLineOff;
+			nCVPath.stroke();
+			nCVPath.closePath();
+
+			// Dreieck Ende
+			nCVPath.beginPath();
+			nCVPath.moveTo(690, 273);	nCVPath.lineTo(690, 287);
+							nCVPath.lineTo(700, 280);
+							nCVPath.lineTo(690, 273);
+			nCVPath.closePath();
+			nCVPath.fill();
+
+
+			// ##### Beschriftung #####
+			// ========================
+			nCVPath.fillStyle = '#0000FF';
+			nCVPath.font      = 'normal 12px Arial,sans-serif';
+
+			// Zeile 1
+			nCVPath.fillText('Source', 51, 44);
+
+			nCVPath.fillText('EQ',  141, 36);			nCVPath.fillText('32',  144, 53);
+			nCVPath.fillText('EQ',  196, 36);			nCVPath.fillText('64',  199, 53);
+			nCVPath.fillText('EQ',  251, 36);			nCVPath.fillText('125', 250, 53);
+			nCVPath.fillText('EQ',  306, 36);			nCVPath.fillText('250', 305, 53);
+			nCVPath.fillText('EQ',  361, 36);			nCVPath.fillText('500', 360, 53);
+			nCVPath.fillText('EQ',  416, 36);			nCVPath.fillText('1K',  417, 53);
+			nCVPath.fillText('EQ',  471, 36);			nCVPath.fillText('2K',  472, 53);
+			nCVPath.fillText('EQ',  526, 36);			nCVPath.fillText('4K',  527, 53);
+			nCVPath.fillText('EQ',  581, 36);			nCVPath.fillText('8K',  582, 53);
+			nCVPath.fillText('EQ',  636, 36);			nCVPath.fillText('16K', 634, 53);
+
+			// Zeile 2
+			nCVPath.fillText('Splitter',    51, 164);
+			nCVPath.fillText('Left Bal.',  138, 115);		nCVPath.fillText('Gain',     147, 133);
+			nCVPath.fillText('Analyser',   206, 115);		nCVPath.fillText('PCM-Data', 202, 133);
+			nCVPath.fillText('Right Bal.', 134, 195);		nCVPath.fillText('Gain',     147, 213);
+			nCVPath.fillText('Analyser',   206, 195);		nCVPath.fillText('PCM-Data', 202, 213);
+			nCVPath.fillText('Merger',     311, 164);
+			nCVPath.fillText('Analyser',   397, 156);		nCVPath.fillText('Frequenz', 395, 174);
+			nCVPath.fillText('Delay',      524, 156);		nCVPath.fillText('Time',     526, 174);
+			nCVPath.fillText('Delay',      614, 156);		nCVPath.fillText('Amount',   609, 174);
+
+			// Zeile 3
+			nCVPath.fillText('Stereo',             51, 275);	nCVPath.fillText('Panner',    50, 293);
+			nCVPath.fillText('EQ PRE-',           136, 275);	nCVPath.fillText('Gain',     147, 293);
+			nCVPath.fillText('DRC',               317, 284);
+			nCVPath.fillText('Loudness',          394, 284);
+			nCVPath.fillText('Audio-Destination', 537, 284);
+		}
+
+		if( nCVPathCounter > nCVLineLoops )
+		{
+			nCVPathCounter = 0;
+		} else
+		  {
+			nCVPathCounter++;
+		  }
+
+		window.setTimeout("nCVShowPath()", nCVLineSpeed);
+	}
+
+	function showConsole()
+	{
+		console.log('%c.:: numaek WebAudio Player 2.0 ::.', 'font-weight: bold; font-size: 14px; background-color: #505050; color: gold; padding: 5px; border: 2px solid gold; border-radius: 10px; text-decoration: underline;');
+		console.info('http://www.numaek.de/Tutorial-25-WebAudio_Player.html\nhttp://www.numaek.de');
+
+		nCVShowPath();
+	}
+
+	document.onload = window.setTimeout("showConsole()", 100);
+
+	</script>
+
+	</p>
+
+	<span class="helpTopic">Release</span><br>
+
+		<div style="width: 365px; margin: 0px auto;">
+			<pre>
++-----------------------------------------------+
+| numaek          WebAudio Player               |
++-----------------------------------------------+
+| Version:        2.0                           |
+| Release:        01.06.2020                    |
+| Author:         www.numaek.de                 |
+| Copyright (c):  2004-2020 by www.numaek.de    |
++-----------------------------------------------+</pre>
+		</div>
+		<br>
+	</p>
+
+ </fieldset>
+ <br><br>
+
+ </body>
+</html>
